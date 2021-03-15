@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+
+.card {
+  text-align: center;
+  border: rgb(0, 0, 0) solid 3px;
+  padding: 1rem;
+  width: 15rem;
+  height: 25rem;
+  display: inline-grid;
+  margin: 1rem 2rem;
+  /* box-shadow: 3px 4px #000000 */
+}
+
+.seed-avatar {
+  justify-self: center;
+  height: 12rem;
+  width: auto;
+}
+
+button {
+  position: relative;
+  background-color: #ffffff;
+  border: #000000 solid 1px;
+  border-radius: 5px;
+  height: 3rem;
+  width: max-content;
+  color: rgb(0, 0, 0);
+  font-size: 18px;
+  justify-self: center;
+}
+
+button:hover {
+  background-color: rgb(216, 216, 216);
+  border: #000000 solid 1px;
+  color: #e04b52;
+}

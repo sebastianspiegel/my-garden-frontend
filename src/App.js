@@ -1,23 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
+import SeedCard from './components/SeedCard'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>My Garden</h1>
+      <form>
+        <input type="text"/>
+        <input type="submit" value="Search"/>
+      </form>
+      <SeedCard />
     </div>
   );
 }
