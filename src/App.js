@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import SeedCard from './components/SeedCard'
+// import { Component } from 'react'
 
 function App() {
   return (
