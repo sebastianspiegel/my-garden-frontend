@@ -5,7 +5,6 @@ import { fetchSeeds } from '../actions/seedActions'
 
 class SeedContainer extends React.Component{
 
-
     makeSeedCards(){
         console.log(this.props)
         let seeds = this.props.seeds.data
