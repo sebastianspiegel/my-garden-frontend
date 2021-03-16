@@ -1,11 +1,11 @@
-const seedReducer = (state = { seeds: [], loading: false }, action) => {
+const seedReducer = (state = {seeds: []}, action) => {
+
     switch(action.type){
         case "GOT_SEEDS":
-            return {...state, seeds: action.payload, loading: false}
-        case "LOADING":
-            return {...state, loading: true}
+            console.log("reached the seed reducer")
+            return {...state, seeds: action.payload}
         default: 
-        return state 
+            return state 
     }
 }
 

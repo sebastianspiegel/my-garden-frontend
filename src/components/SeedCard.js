@@ -1,15 +1,19 @@
 
 
-function ToyCard(props){
+function SeedCard(props){
+
+    function handleClick() {
+        
+    }
 
     return(
-        <div className="card">
-            <h2>{props.seed.common_name}</h2>
-            <h4>{props.seed.latin_name}</h4>
-            <img src={props.seed.img} className="seed-avatar"/>
+        <div className="card" onClick={handleClick}>
+            <h2>{props.seed.attributes.common_name}</h2>
+            <p>{props.seed.attributes.latin_name}</p>
+            <img src={props.seed.attributes.img} alt={props.seed.attributes.info} className="seed-avatar"/>
             <button>Remove</button>
         </div>
     )
 }
 
-export default ToyCard
+export default SeedCard

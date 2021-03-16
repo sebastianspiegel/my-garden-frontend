@@ -1,20 +1,15 @@
 import React from 'react'
 import SeedCard from '../components/SeedCard'
-import { conntect } from 'react-redux'
+import {connect} from 'react-redux'
 import { fetchSeeds } from '../actions/seedActions'
 
 class SeedContainer extends React.Component{
 
-    addSeed = (seedData) => {
-        this.setState((prevState, prevProps) => {
-            return {
-                seeds: [...prevState.seeds, seedData]
-            }
-        })
-    }
 
     makeSeedCards(){
-        return this.props.seeds.map(seed => <SeedCard seed={seed}/>)
+        console.log(this.props)
+        let seeds = this.props.seeds.data
+        return seeds ? seeds.map(seed => <SeedCard key="" seed={seed}/>) : seeds = []
     }
 
     componentDidMount(){
@@ -28,16 +23,15 @@ class SeedContainer extends React.Component{
                     <input type="text"/>
                     <input type="submit" value="Search"/>
                 </form>
-                {this.props.loading ? <h1>LOADING...</h1> : this.makeSeedCards()}
+                {this.makeSeedCards()}
             </div>
         )
     }
 }
 
-const mapStateToProps = (state, ownProps) => {
-    return {
-        seeds: state.seeds,
-        loading: state.loading
+const mapStateToProps = (state) => {
+    return{
+        seeds: state.seeds
     }
 }
 
@@ -47,4 +41,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default conntect(mapStateToProps, mapDispatchToProps)(SeedContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(SeedContainer)
