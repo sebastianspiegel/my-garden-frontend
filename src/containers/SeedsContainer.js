@@ -30,10 +30,12 @@ class SeedContainer extends React.Component{
     render(){
         return(
             <div>
-                <SeedFilter handleChange={this.handleChange} />
-                {this.makeSeedCards()}
                 <Route exact path="/seeds/new">
                   <SeedForm />
+                </Route>
+                <Route exact path="/seeds">
+                    <SeedFilter handleChange={this.handleChange} />
+                    {this.makeSeedCards()}
                 </Route>
             </div>
         )

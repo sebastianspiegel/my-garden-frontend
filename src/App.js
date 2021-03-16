@@ -12,10 +12,14 @@ class App extends Component {
 
   render(){
     return (
-      <div className="App">
-        <h1>My Garden</h1>
-        <SeedContainer />
-      </div>
+      <Router>
+        <Switch>
+          <div className="App">
+            <h1>My Garden</h1>
+            <SeedContainer />
+          </div>
+        </Switch>
+      </Router>
     );
   }
 }
