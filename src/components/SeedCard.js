@@ -3,14 +3,7 @@ import ReactCardFlip from 'react-card-flip';
 import SeedCardBack from './SeedCardBack';
 import SeedCardFront from './SeedCardFront'
 
-
 class SeedCard extends React.Component {
-
-    // state = ({
-    //     ...this.state,
-    //     seed: this.props,
-    //     isFlipped: false
-    // })
 
     constructor() {
         super();

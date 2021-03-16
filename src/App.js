@@ -1,6 +1,11 @@
 import './App.css';
 import SeedContainer from './containers/SeedsContainer';
 import { Component } from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
 
 class App extends Component {
