@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import { fetchSeeds } from '../actions/seedActions'
 import SeedFilter from '../components/SeedFilter'
 import SeedForm from '../components/SeedForm'
-import {Switch, Route} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 
 class SeedContainer extends React.Component{
 

@@ -5,7 +5,7 @@ function SeedCardFront(props){
             <h2>{props.seed.seed.attributes.common_name}</h2>
             <p>{props.seed.seed.attributes.latin_name}</p>
             <img src={props.seed.seed.attributes.img} alt={props.seed.seed.attributes.common_name} className="seed-avatar"/>
-            
+            <button>Add to my garden</button>
         </div>
     )
 }
