@@ -14,7 +14,7 @@ class SeedContainer extends React.Component{
 
     makeSeedCards(){
         let seeds = ""
-        this.state.search !== "" ? seeds = this.props.seeds.data.filter(seed => seed.attributes.common_name.toLowerCase().includes(this.state.search.toLowerCase())) : seeds = this.props.seeds.data 
+        this.state.search !== "" ? seeds = this.props.seeds.filter(seed => seed.attributes.common_name.toLowerCase().includes(this.state.search.toLowerCase())) : seeds = this.props.seeds 
         return seeds ? seeds.map(seed => <SeedCard key={seed.id} seed={seed}/>) : seeds = []
     }
 
@@ -27,19 +27,11 @@ class SeedContainer extends React.Component{
         this.setState({search: search})
     }
 
-    // addSeed = (seedData) => {
-    //     this.setState((prevState, prevProps) => {
-    //         return {
-    //             seeds: [...prevState.seeds, seedData]
-    //         }
-    //     })
-    // }
-
     render(){
         return(
             <div>
                 <Route exact path="/seeds/new">
-                  <SeedForm addSeed={this.addSeed}/>
+                  <SeedForm />
                 </Route>
                 <Route exact path="/seeds">
                     <SeedFilter handleChange={this.handleChange} />

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route} from 'react-router-dom'
+// import {Route} from 'react-router-dom'
 import UserShow from '../components/UserShow'
 
 class UserContainer extends React.Component {
@@ -33,7 +33,6 @@ class UserContainer extends React.Component {
     render(){
         return(
             <div>
-                <h2>User Container</h2>
                 {/* <Route path="/users/id" component={(routeInfo) => {
                   const user = this.state.user
                   const gardens = this.state.gardens

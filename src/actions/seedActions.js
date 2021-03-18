@@ -9,13 +9,12 @@ export const fetchSeeds = () => {
         fetch(url)
         .then(resp => resp.json())
         .then(json => {
-            dispatch(setSeeds(json))
+            dispatch(setSeeds(json.data))
         })
     }
 }
 
 export const createSeed = (seed) => {
-    console.log("hit action")
     return (dispatch) => {
         const configObj = {
             method: 'POST',
@@ -28,7 +27,7 @@ export const createSeed = (seed) => {
         fetch(url, configObj)
         .then(resp => resp.json())
         .then(json => {
-            dispatch(addSeed(seed))
+            dispatch(addSeed(json))
         })
     }
 }

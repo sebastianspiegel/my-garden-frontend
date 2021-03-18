@@ -20,14 +20,9 @@ class SeedForm extends React.Component {
         //     body: JSON.stringify({ seed: this.state }),
         // };
 
-        // fetch("http://localhost:3000/seeds", requestObj)
-        // .then((res) => res.json())
-        // .then((seed) => {
-        //     console.log(seed)
-        // });
         const seed = {...this.state}
         console.log(seed)
-        createSeed(seed)
+        this.props.createSeed(seed)
 
         this.setState({
             common_name: "",
@@ -58,5 +53,4 @@ class SeedForm extends React.Component {
     }
 }
 
-//export default connect(null, {addRoom})(RoomsForm);
 export default connect(null, {createSeed})(SeedForm)
