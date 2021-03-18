@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background: burlywood;
 }
 
 .App-logo {
@@ -40,8 +41,10 @@
 .card {
   text-align: center;
   border: rgb(0, 0, 0) solid 3px;
+  background: rgb(255, 250, 238);
+  border-style: double;
   padding: 1rem;
-  width: 15rem;
+  width: 17rem;
   height: 25rem;
   display: inline-grid;
   margin: 1rem 2rem;
@@ -79,5 +82,5 @@ button {
 button:hover {
   background-color: rgb(216, 216, 216);
   border: #000000 solid 1px;
-  color: #e04b52;
+  color: #063b0d;
 }
