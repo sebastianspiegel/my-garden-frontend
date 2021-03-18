@@ -14,7 +14,7 @@ class UserContainer extends React.Component {
     }
 
     fetchUserInfo(){
-        const url = `http://localhost:3000/users/${this.state.user}`
+        const url = `http://localhost:3000/users/1/gardens/1`
         fetch(url)
         .then(resp => resp.json())
         .then(json => {
@@ -24,21 +24,22 @@ class UserContainer extends React.Component {
 
     somethingState(data){
         this.setState({
-            gardens: data.gardens,
-            user: data.username
+            garden: data.name,
+            user: data.user.username,
+            seeds: data.seeds
         })
-        console.log(this.state)
     }
 
     render(){
         return(
             <div>
-                <h2>User Route</h2>
-                <Route path="/users/id" component={(routeInfo) => {
+                <h2>User Container</h2>
+                {/* <Route path="/users/id" component={(routeInfo) => {
                   const user = this.state.user
                   const gardens = this.state.gardens
                   return !!user ? <UserShow routeInfo={routeInfo} user={user} gardens={gardens}/> : <h3>Not Found!</h3>
-                }}/>
+                }}/> */}
+                <UserShow user={this.state.user} gardens={this.state.garden} seeds={this.state.seeds}/>
             </div>
         )
     }

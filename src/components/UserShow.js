@@ -1,18 +1,18 @@
 import React from 'react'
-import SeedCard from './SeedCard'
+import GardenCard from './GardenCard'
 
 
 function UserShow(props) {
 
-    function makeGardenCards(){
-        return this.props.gardens ? this.props.gardens.map(garden => <li key={garden.id}>{garden.name}</li>) : <li>No gardens have been made</li>
+    function makeSeedCards(){
+        let seeds = ""
+        return props.seeds ? props.seeds.map(seed => <GardenCard key={seed.id} seed={seed}/>) : seeds 
     }
 
-    
     return(
         <div>
-            <h2>{this.props.user}'s Gardens</h2>
-            {makeGardenCards()}
+            <h2>{props.user}'s Gardens</h2>
+            {makeSeedCards()}
         </div>
     )
     

@@ -9,7 +9,6 @@ class SeedCard extends React.Component {
         super();
           this.state = {
             ...this.state,
-            seed: this.props,
             isFlipped: false
         };
         this.handleClick = this.handleClick.bind(this);
@@ -21,17 +20,22 @@ class SeedCard extends React.Component {
         this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
     }
 
+    handleAddToGarden(){
+
+    }
+
     render(){
         return(
             <div className="card" onClick={this.handleClick}>
                 <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal">
                     <div onClick={this.handleClick}>
-                        <SeedCardFront seed={this.props} handleClick={this.handleClick} />
+                        <SeedCardFront seed={this.props.seed.attributes} handleClick={this.handleClick} />
                     </div>
                     <div onClick={this.handleClick}>
-                        <SeedCardBack seed={this.props} handleClick={this.handleClick} />
+                        <SeedCardBack seed={this.props.seed.attributes} handleClick={this.handleClick} />
                     </div>
                 </ReactCardFlip>
+                <button onClick={this.handleAddToGarden}>Add to garden</button>
             </div>
         )
     }

@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import {createSeed} from '../actions/seedActions'
 
 class SeedForm extends React.Component {
 
@@ -12,17 +14,20 @@ class SeedForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
-        const requestObj = {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ seed: this.state }),
-        };
+        // const requestObj = {
+        //     method: "POST",
+        //     headers: { "Content-Type": "application/json" },
+        //     body: JSON.stringify({ seed: this.state }),
+        // };
 
-        fetch("http://localhost:3000/seeds", requestObj)
-        .then((res) => res.json())
-        .then((seed) => {
-            console.log(seed)
-        });
+        // fetch("http://localhost:3000/seeds", requestObj)
+        // .then((res) => res.json())
+        // .then((seed) => {
+        //     console.log(seed)
+        // });
+        const seed = {...this.state}
+        console.log(seed)
+        createSeed(seed)
 
         this.setState({
             common_name: "",
@@ -53,4 +58,5 @@ class SeedForm extends React.Component {
     }
 }
 
-export default SeedForm 
+//export default connect(null, {addRoom})(RoomsForm);
+export default connect(null, {createSeed})(SeedForm)

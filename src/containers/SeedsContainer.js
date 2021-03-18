@@ -27,11 +27,19 @@ class SeedContainer extends React.Component{
         this.setState({search: search})
     }
 
+    // addSeed = (seedData) => {
+    //     this.setState((prevState, prevProps) => {
+    //         return {
+    //             seeds: [...prevState.seeds, seedData]
+    //         }
+    //     })
+    // }
+
     render(){
         return(
             <div>
                 <Route exact path="/seeds/new">
-                  <SeedForm />
+                  <SeedForm addSeed={this.addSeed}/>
                 </Route>
                 <Route exact path="/seeds">
                     <SeedFilter handleChange={this.handleChange} />
