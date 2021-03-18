@@ -11,11 +11,10 @@ function UserShow(props) {
 
     return(
         <div>
-            <h2>{props.user}'s Gardens</h2>
+            <h2>{props.user.username}'s Gardens</h2>
             {makeSeedCards()}
         </div>
     )
-    
 
 }
 

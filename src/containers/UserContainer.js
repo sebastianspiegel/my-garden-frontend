@@ -1,33 +1,19 @@
 import React from 'react'
 // import {Route} from 'react-router-dom'
+import {connect} from 'react-redux'
 import UserShow from '../components/UserShow'
+import {fetchGardenSeeds} from '../actions/userActions'
 
 class UserContainer extends React.Component {
 
-    state = {
-        gardens: "",
-        user: "",
-    }
-
     componentDidMount(){
-        this.fetchUserInfo()
+        this.props.fetchGardenSeeds()
     }
 
-    fetchUserInfo(){
-        const url = `http://localhost:3000/users/1/gardens/1`
-        fetch(url)
-        .then(resp => resp.json())
-        .then(json => {
-            this.somethingState(json)
-        })
-    }
-
-    somethingState(data){
-        this.setState({
-            garden: data.name,
-            user: data.user.username,
-            seeds: data.seeds
-        })
+    makeGarden(){
+        console.log(this.props)
+        let user = this.props.garden.user 
+        return user ? <UserShow user={this.props.garden.user} gardens={this.props.garden} seeds={this.props.garden.seeds}/> : user = ""
     }
 
     render(){
@@ -38,11 +24,24 @@ class UserContainer extends React.Component {
                   const gardens = this.state.gardens
                   return !!user ? <UserShow routeInfo={routeInfo} user={user} gardens={gardens}/> : <h3>Not Found!</h3>
                 }}/> */}
-                <UserShow user={this.state.user} gardens={this.state.garden} seeds={this.state.seeds}/>
+                {/* <UserShow user={this.state.user} gardens={this.state.garden} seeds={this.state.seeds}/> */}
+                {this.makeGarden()}
             </div>
         )
     }
 
 }
 
-export default UserContainer
+const mapStateToProps = (state) => {
+    return{
+        garden: state.garden
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchGardenSeeds: () => dispatch(fetchGardenSeeds())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserContainer)

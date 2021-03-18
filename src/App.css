@@ -1,6 +1,9 @@
+body {
+  background: burlywood;
+}
+
 .App {
   text-align: center;
-  background: burlywood;
 }
 
 .App-logo {
@@ -43,6 +46,7 @@
   border: rgb(0, 0, 0) solid 3px;
   background: rgb(255, 250, 238);
   border-style: double;
+  border-radius: 5px;
   padding: 1rem;
   width: 17rem;
   height: 25rem;
