@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {createSeed} from '../actions/seedActions'
+import { Redirect } from "react-router";
 
 class SeedForm extends React.Component {
 
@@ -21,7 +22,6 @@ class SeedForm extends React.Component {
         // };
 
         const seed = {...this.state}
-        console.log(seed)
         this.props.createSeed(seed)
 
         this.setState({
@@ -30,6 +30,10 @@ class SeedForm extends React.Component {
             img: "",
             info: ""
         })
+
+        if (this.props.redirectTo) {
+            return <Redirect to={this.props.redirectTo} />;
+        }
     }
 
     handleChange = (e) => {
