@@ -22,16 +22,16 @@ class GardenCard extends React.Component {
 
     render(){
         return(
-            <div className="card" onClick={this.handleClick}>
+            <div className="card-hidden" onClick={this.handleClick}>
                 <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal">
-                    <div onClick={this.handleClick}>
+                    <div className="card" onClick={this.handleClick}>
                         <SeedCardFront seed={this.props.seed} handleClick={this.handleClick} />
+                        <button onClick={() => console.log("remove from garden button")}>Remove from Garden</button>
                     </div>
-                    <div onClick={this.handleClick}>
+                    <div className="card" onClick={this.handleClick}>
                         <SeedCardBack seed={this.props.seed} handleClick={this.handleClick} />
                     </div>
                 </ReactCardFlip>
-                <button onClick={() => console.log("remove from garden button")}>Remove from Garden</button>
             </div>
         )
     }
