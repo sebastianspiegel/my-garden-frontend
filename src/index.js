@@ -9,11 +9,13 @@ import {composeWithDevTools} from "redux-devtools-extension"
 import seedReducer from './reducers/seedReducer'
 import userReducer from './reducers/userReducer'
 import thunk from 'redux-thunk';
+import reduceReducers from 'reduce-reducers';
 // import { createBrowserHistory } from 'history';
 
 // export const browserHistory = createBrowserHistory();
-
-const store = createStore((seedReducer, userReducer), composeWithDevTools(applyMiddleware(thunk)))
+const initialState = {}
+const reducer = reduceReducers(initialState, seedReducer, userReducer);
+const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk))) 
 
 ReactDOM.render(
   <React.StrictMode>

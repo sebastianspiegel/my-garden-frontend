@@ -1,10 +1,10 @@
 import React from 'react'
-import SeedCard from '../components/SeedCard'
+import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
-import { fetchSeeds } from '../actions/seedActions'
+import SeedCard from '../components/SeedCard'
+import {fetchSeeds} from '../actions/seedActions'
 import SeedFilter from '../components/SeedFilter'
 import SeedForm from '../components/SeedForm'
-import {Route} from 'react-router-dom'
 
 class SeedContainer extends React.Component{
 

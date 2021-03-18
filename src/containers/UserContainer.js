@@ -12,8 +12,7 @@ class UserContainer extends React.Component {
 
     makeGarden(){
         console.log(this.props)
-        let user = this.props.garden.user 
-        return user ? <UserShow user={this.props.garden.user} gardens={this.props.garden} seeds={this.props.garden.seeds}/> : user = ""
+        return this.props.garden ? <UserShow user={this.props.garden.user} gardens={this.props.garden} seeds={this.props.garden.seeds}/> : <h2>No garden</h2>
     }
 
     render(){
