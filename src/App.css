@@ -1,5 +1,5 @@
 body {
-  background: burlywood;
+  background: rgb(212, 224, 155);
 }
 
 .App {
@@ -43,8 +43,8 @@ body {
 
 .card {
   text-align: center;
-  border: rgb(0, 0, 0) solid 3px;
-  background: rgb(255, 250, 238);
+  border: rgb(255, 255, 255) solid 5px;
+  background: rgb(246, 244, 210);
   border-style: double;
   border-radius: 5px;
   padding: 1rem;
@@ -54,6 +54,16 @@ body {
   margin: 1rem 2rem;
   /* box-shadow: 3px 4px #000000 */
 }
+
+#card-front {
+  /* background: rgb(203, 223, 189); */
+}
+
+#card-back {
+  /* background: rgb(241, 156, 121); */
+  background: rgb(203, 223, 189);
+}
+
 .card-hidden {
   text-align: center;
   /* border: rgba(255, 255, 255, 0) solid 0px;
@@ -93,4 +103,13 @@ button {
   background-color: rgb(216, 216, 216);
   border: #000000 solid 1px;
   color: #6d0000;
+}
+
+.header {
+  font-family: "Copperplate";
+}
+
+h1.header {
+  font-size: 50px;
+  margin-bottom: -10px;
 }

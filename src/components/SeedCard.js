@@ -36,6 +36,7 @@ class SeedCard extends React.Component {
                 <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal">
                     <div className="card" onClick={this.handleClick}>
                         <SeedCardFront seed={this.props.seed.attributes} handleClick={this.handleClick} />
+                        <br />
                         <button class="add-button" onClick={() => this.handleAddToGarden(this.props.seed)}>Add to garden</button>
                     </div>
                     <div className="card" onClick={this.handleClick}>

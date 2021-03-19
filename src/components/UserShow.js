@@ -11,7 +11,8 @@ function UserShow(props) {
 
     return(
         <div>
-            <h2>{props.user.username}'s Gardens</h2>
+            <h2>{props.user.username}'s Garden</h2>
+            {/* Garden cards will go here, clicking on them will take you to that garden component and show the seedcards for that garden */}
             {makeSeedCards()}
         </div>
     )
