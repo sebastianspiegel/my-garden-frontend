@@ -24,7 +24,6 @@ class SeedCard extends React.Component {
 
     handleAddToGarden = (seed) => {
         // e.preventDefault();
-        console.log(seed)
         this.props.addToGarden(seed)
         //update action 
         //User.first.gardens.first.seeds.delete(Seed.find(6))
@@ -37,7 +36,7 @@ class SeedCard extends React.Component {
                     <div className="card" onClick={this.handleClick}>
                         <SeedCardFront seed={this.props.seed.attributes} handleClick={this.handleClick} />
                         <br />
-                        <button class="add-button" onClick={() => this.handleAddToGarden(this.props.seed)}>Add to garden</button>
+                        <button className="add-button" onClick={() => this.handleAddToGarden(this.props.seed)}>Add to garden</button>
                     </div>
                     <div className="card" onClick={this.handleClick}>
                         <SeedCardBack seed={this.props.seed.attributes} handleClick={this.handleClick} />

@@ -33,7 +33,7 @@ class GardenCard extends React.Component {
                     <div className="card" onClick={this.handleClick}>
                         <SeedCardFront seed={this.props.seed} handleClick={this.handleClick} />
                         <br />
-                        <button class="remove-button" onClick={() => this.handleRemove(this.props.seed)}>Remove from Garden</button>
+                        <button className="remove-button" onClick={() => this.handleRemove(this.props.seed)}>Remove from Garden</button>
                     </div>
                     <div className="card" onClick={this.handleClick}>
                         <SeedCardBack seed={this.props.seed} handleClick={this.handleClick} />
