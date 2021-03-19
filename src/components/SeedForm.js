@@ -15,12 +15,6 @@ class SeedForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
-        // const requestObj = {
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify({ seed: this.state }),
-        // };
-
         const seed = {...this.state}
         this.props.createSeed(seed)
 

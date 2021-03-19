@@ -11,24 +11,16 @@ class UserContainer extends React.Component {
     }
 
     makeGarden(){
-        console.log(this.props)
         return this.props.garden ? <UserShow user={this.props.garden.user} gardens={this.props.garden} seeds={this.props.garden.seeds}/> : <h2>No garden</h2>
     }
 
     render(){
         return(
             <div>
-                {/* <Route path="/users/id" component={(routeInfo) => {
-                  const user = this.state.user
-                  const gardens = this.state.gardens
-                  return !!user ? <UserShow routeInfo={routeInfo} user={user} gardens={gardens}/> : <h3>Not Found!</h3>
-                }}/> */}
-                {/* <UserShow user={this.state.user} gardens={this.state.garden} seeds={this.state.seeds}/> */}
                 {this.makeGarden()}
             </div>
         )
     }
-
 }
 
 const mapStateToProps = (state) => {
