@@ -7,10 +7,13 @@ import { connect } from 'react-redux'
 
 class GardenCard extends React.Component {
 
+    //This entire component will be changed to display the garden cards on the user page
+    // On click will route to <Garden />
+
     constructor() {
         super();
           this.state = {
-            // seed: this.props.seed,
+              ...this.state,
             isFlipped: false
         };
         this.handleClick = this.handleClick.bind(this);

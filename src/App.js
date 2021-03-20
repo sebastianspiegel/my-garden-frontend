@@ -1,5 +1,5 @@
 import './App.css';
-import SeedContainer from './containers/SeedsContainer';
+import SeedContainer from './containers/IndexContainer';
 import UserContainer from './containers/UserContainer'
 import { Component } from 'react'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";

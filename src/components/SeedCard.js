@@ -16,22 +16,29 @@ class SeedCard extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     
-    componentDidMount(){
-        if(this.state.redirectTo) {
-            console.log("seedcard has redirect to in store")
-        }
-    }
+    // componentDidMount(){
+    //     if(this.state.redirectTo) {
+    //         console.log("seedcard has redirect to in store")
+    //     }
+    // }
 
     handleClick(e) {
         e.preventDefault();
         this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
     }
 
-    handleAddToGarden = (seed) => {
-        // e.preventDefault();
+    handleButtonClick = (seed) => {
         this.props.addToGarden(seed)
-        //update action 
-        //User.first.gardens.first.seeds.delete(Seed.find(6))
+    }
+
+    renderButton(){
+        console.log(this.props.page)
+        // logic for which button to appear
+        if (this.props.page === "index") {
+            return <button className="add-button" onClick={() => this.handleButtonClick(this.props.seed)}>Add to garden</button>
+        } else {
+            return <button className="remove-button" onClick={() => this.handleButtonClick(this.props.seed)}>Remove from Garden</button>
+        }
     }
 
     render(){
@@ -41,7 +48,8 @@ class SeedCard extends React.Component {
                     <div className="card" onClick={this.handleClick}>
                         <SeedCardFront seed={this.props.seed.attributes} handleClick={this.handleClick} />
                         <br />
-                        <button className="add-button" onClick={() => this.handleAddToGarden(this.props.seed)}>Add to garden</button>
+                        {/* <button className="add-button" onClick={() => this.handleAddToGarden(this.props.seed)}>Add to garden</button> */}
+                        {this.renderButton()}
                     </div>
                     <div className="card" onClick={this.handleClick}>
                         <SeedCardBack seed={this.props.seed.attributes} handleClick={this.handleClick} />
