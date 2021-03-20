@@ -18,7 +18,7 @@ class UserContainer extends React.Component {
     makeGardenCards(){
         let gardens = []
         this.props.gardens ? gardens = this.props.gardens : gardens = []
-        return gardens.map(garden => <GardenCard garden={garden.attributes}/>)
+        return gardens.map(garden => <GardenCard key={garden.id} garden={garden.attributes}/>)
     }
 
     render(){
