@@ -10,10 +10,9 @@ import seedReducer from './reducers/seedReducer'
 import userReducer from './reducers/userReducer'
 import thunk from 'redux-thunk';
 import reduceReducers from 'reduce-reducers';
-// import { createBrowserHistory } from 'history';
 
-// export const browserHistory = createBrowserHistory();
-const initialState = {}
+
+const initialState = {currentuser: 1, usergardens: [], allseeds: []}
 const reducer = reduceReducers(initialState, seedReducer, userReducer);
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk))) 
 

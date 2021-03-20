@@ -2,7 +2,7 @@ import React from 'react';
 import ReactCardFlip from 'react-card-flip';
 import SeedCardBack from './SeedCardBack';
 import SeedCardFront from './SeedCardFront'
-import { connect } from 'react-redux'
+import { connect, useStore } from 'react-redux'
 import {addToGarden} from '../actions/userActions'
 
 class SeedCard extends React.Component {
@@ -16,6 +16,11 @@ class SeedCard extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
     
+    componentDidMount(){
+        if(this.state.redirectTo) {
+            console.log("seedcard has redirect to in store")
+        }
+    }
 
     handleClick(e) {
         e.preventDefault();

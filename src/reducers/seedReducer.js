@@ -6,7 +6,8 @@ const seedReducer = (state = {seeds: []}, action) => {
         case "ADDED_SEED":
             return {...state, seeds: [...state.seeds, action.payload]}
         case "REDIRECT":
-            return {redirectTo: action.payload}
+            console.log("in the reducer")
+            return {...state, redirectTo: action.payload}
         default: 
             return state 
     }

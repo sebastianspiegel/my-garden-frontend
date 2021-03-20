@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {createSeed} from '../actions/seedActions'
 import { Redirect } from "react-router";
+// import withrouter 
 
 class SeedForm extends React.Component {
 
@@ -28,6 +29,7 @@ class SeedForm extends React.Component {
         if (this.props.redirectTo) {
             return <Redirect to={this.props.redirectTo} />;
         }
+        // history.push
     }
 
     handleChange = (e) => {
