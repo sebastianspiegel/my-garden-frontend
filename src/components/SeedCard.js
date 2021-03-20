@@ -3,7 +3,7 @@ import ReactCardFlip from 'react-card-flip';
 import SeedCardBack from './SeedCardBack';
 import SeedCardFront from './SeedCardFront'
 import { connect, useStore } from 'react-redux'
-import {addToGarden} from '../actions/userActions'
+import {addToGarden} from '../actions/gardenActions'
 
 class SeedCard extends React.Component {
 

@@ -5,7 +5,7 @@ import SeedCard from './SeedCard'
 
 function UserShow(props) {
 
-    //this will move to GardenContainer ?? 
+    //this will move to GardenContainer
 
     function makeSeedCards(){
         let seeds = ""

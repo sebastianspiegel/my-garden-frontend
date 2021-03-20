@@ -1,50 +1,21 @@
 import React from 'react';
-import ReactCardFlip from 'react-card-flip';
-import SeedCardBack from './SeedCardBack';
-import SeedCardFront from './SeedCardFront'
-import {removeFromGarden} from '../actions/userActions'
 import { connect } from 'react-redux'
 
-class GardenCard extends React.Component {
+export default function GardenCard(props){
 
     //This entire component will be changed to display the garden cards on the user page
-    // On click will route to <Garden />
+    // On click will route to <GardenContainer  />
 
-    constructor() {
-        super();
-          this.state = {
-              ...this.state,
-            isFlipped: false
-        };
-        this.handleClick = this.handleClick.bind(this);
-    }
     
+    return(
+        
+        <div className="card">
+            {console.log(props)}
+            Garden card
+        </div>
+    )
 
-    handleClick(e) {
-        e.preventDefault();
-        this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
-    }
 
-    handleRemove = (seed) => {
-        this.props.removeFromGarden(seed)
-    }
-
-    render(){
-        return(
-            <div className="card-hidden" onClick={this.handleClick}>
-                <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal">
-                    <div className="card" onClick={this.handleClick}>
-                        <SeedCardFront seed={this.props.seed} handleClick={this.handleClick} />
-                        <br />
-                        <button className="remove-button" onClick={() => this.handleRemove(this.props.seed)}>Remove from Garden</button>
-                    </div>
-                    <div className="card" onClick={this.handleClick}>
-                        <SeedCardBack seed={this.props.seed} handleClick={this.handleClick} />
-                    </div>
-                </ReactCardFlip>
-            </div>
-        )
-    }
+    
 }
 
-export default connect(null, {removeFromGarden})(GardenCard)

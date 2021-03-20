@@ -1,8 +1,7 @@
 import React from 'react'
-// import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
-import UserShow from '../components/UserShow'
-import {fetchGardenSeeds} from '../actions/userActions'
+import { fetchGardens } from '../actions/userActions'
+import GardenCard from '../components/GardenCard'
 
 class UserContainer extends React.Component {
 
@@ -13,21 +12,22 @@ class UserContainer extends React.Component {
     
 
     componentDidMount(){
-        this.props.fetchGardenSeeds()
+        this.props.fetchGardens(1)
     }
 
     makeGardenCards(){
         //return <GardenCard garden={this.props.garden} />
-    }
-
-    makeGarden(){
-        return this.props.garden ? <UserShow user={this.props.garden.user} gardens={this.props.garden} seeds={this.props.garden.seeds} /> : <h2>No garden</h2>
+        console.log(this.props.gardens)
+        let gardens = []
+        this.props.gardens > 0 ? gardens = this.props.gardens : gardens = []
+        return gardens.map(garden => <GardenCard garden={garden}/>)
     }
 
     render(){
         return(
             <div>
-                {this.makeGarden()}
+                Current User's Garden
+                {this.makeGardenCards()}
             </div>
         )
     }
@@ -35,13 +35,13 @@ class UserContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return{
-        garden: state.garden
+        gardens: state.gardens
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchGardenSeeds: () => dispatch(fetchGardenSeeds())
+        fetchGardens: () => dispatch(fetchGardens())
     }
 }
 
