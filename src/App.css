@@ -81,6 +81,12 @@ body {
   width: auto;
 }
 
+.garden-avatar {
+  justify-self: center;
+  height: 20rem;
+  width: auto;
+}
+
 button {
   position: relative;
   background-color: #ffffff;

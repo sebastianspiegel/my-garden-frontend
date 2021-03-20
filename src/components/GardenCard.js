@@ -11,7 +11,8 @@ export default function GardenCard(props){
         
         <div className="card">
             {console.log(props)}
-            Garden card
+            <h2>{props.garden.name}</h2>
+            <img src="https://i.imgur.com/hLO0MHo.jpg" alt="" className="garden-avatar" />
         </div>
     )
 
