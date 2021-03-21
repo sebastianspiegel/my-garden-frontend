@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 import SeedCard from '../components/SeedCard'
 import {fetchGardenSeeds} from '../actions/gardenActions'
 
-
+ 
 class GardenContainer extends React.Component {
 
     makeSeedCards(){
@@ -34,7 +34,7 @@ class GardenContainer extends React.Component {
 const mapStateToProps = (state) => {
     console.log(state)
     return{
-        garden: state
+        garden: state.garden
     }
 }
 

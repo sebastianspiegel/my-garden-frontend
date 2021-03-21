@@ -6,7 +6,7 @@ import {fetchSeeds} from '../actions/seedActions'
 import SeedFilter from '../components/SeedFilter'
 import SeedForm from '../components/SeedForm'
 
-class SeedContainer extends React.Component{
+class SeedContainer extends React.Component{ 
 
     state = {
         ...this.state,

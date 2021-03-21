@@ -9,12 +9,12 @@ export const removeSeedFromGarden = (seed) => ({type: "GARDEN/REMOVE_SEED", payl
 
 export const fetchGardenSeeds = () => {
     return (dispatch) => {
-        fetch(url)
+        fetch(`http://localhost:3000/gardens/1`)
         .then(resp => resp.json())
         .then(json => {
             // console.log(json)
             // dispatch(setGardenSeeds(json))
-            dispatch({type: "GARDEN/GOT_SEEDS", payload: json.seeds})
+            dispatch({type: "GARDEN/GOT_SEEDS", payload: json})
         })
     }
 }
