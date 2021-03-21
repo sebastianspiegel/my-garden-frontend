@@ -5,11 +5,11 @@ import GardenCard from '../components/GardenCard'
 
 class UserContainer extends React.Component {
 
-    //this will render garden cards 
-    //garden cards are all the gardens a user has made 
-
     // eventually this will be /user/id 
-    
+
+    handleClick(){
+        console.log("clicked a garden")
+    }
 
     componentDidMount(){
         this.props.fetchGardens(1)
@@ -18,7 +18,7 @@ class UserContainer extends React.Component {
     makeGardenCards(){
         let gardens = []
         this.props.gardens ? gardens = this.props.gardens : gardens = []
-        return gardens.map(garden => <GardenCard key={garden.id} garden={garden.attributes}/>)
+        return gardens.map(garden => <GardenCard key={garden.id} garden={garden.attributes} handleClick={this.handleClick}/>)
     }
 
     render(){

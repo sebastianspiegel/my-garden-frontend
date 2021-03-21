@@ -1,6 +1,7 @@
-const url = `http://localhost:3000/users/1/gardens/1`
+const url = `http://localhost:3000/gardens/1`
+//  const url = `http://localhost:3000/gardens/${gardenid}`
 
-export const setGardenSeeds = (seeds) => ({type: "GARDEN/GOT_SEEDS", payload: seeds})
+export const setGardenSeeds = (garden) => ({type: "GARDEN/GOT_SEEDS", payload: garden})
 
 export const addSeedToGarden = (seed) => ({type: "GARDEN/ADD_SEED", playload: seed})
 

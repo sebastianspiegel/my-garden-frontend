@@ -1,8 +1,8 @@
 const url = "http://127.0.0.1:3000/seeds"
 
-export const setSeeds = (seeds) => ({type: "GOT_SEEDS", payload: seeds})
+export const setSeeds = (seeds) => ({type: "SEEDS/GOT_SEEDS", payload: seeds})
 
-export const addSeed = (seed) => ({ type: "ADDED_SEED", payload: seed })
+export const addSeed = (seed) => ({ type: "SEEDS/ADDED_SEED", payload: seed })
 
 export const redirect = (link) => ({ type: "REDIRECT", payload: link })
 

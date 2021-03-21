@@ -1,9 +1,9 @@
 const seedReducer = (state = {seeds: []}, action) => {
 
     switch(action.type){
-        case "GOT_SEEDS":
+        case "SEEDS/GOT_SEEDS":
             return {...state, seeds: action.payload}
-        case "ADDED_SEED":
+        case "SEEDS/ADDED_SEED":
             return {...state, seeds: [...state.seeds, action.payload]}
         case "REDIRECT":
             console.log("in the reducer")

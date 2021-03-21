@@ -55,6 +55,10 @@ body {
   /* box-shadow: 3px 4px #000000 */
 }
 
+.card:hover {
+  border: rgb(0, 0, 0) solid 5px;
+}
+
 #card-front {
   /* background: rgb(203, 223, 189); */
 }

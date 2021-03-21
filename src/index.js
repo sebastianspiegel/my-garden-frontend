@@ -12,7 +12,7 @@ import thunk from 'redux-thunk';
 import reduceReducers from 'reduce-reducers';
 
 
-const initialState = {currentuser: 1, usergardens: [], seeds: []}
+const initialState = {}
 const reducer = reduceReducers(initialState, seedReducer, userReducer);
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk))) 
 
