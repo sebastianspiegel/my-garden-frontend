@@ -32,10 +32,7 @@ class SeedContainer extends React.Component{
         return(
             <div>
                 <Route exact path="/seeds/new">
-                  <SeedForm>
-                    {this.state.redirectTo ? console.log("true") : console.log("false")}
-                  </SeedForm>
-                  {/* ^^ logic to redirect (available in store) then redirect from store in SeedCards compondentDidMount */}
+                  <SeedForm />
                 </Route>
                 <Route exact path="/seeds">
                     <SeedFilter handleChange={this.handleChange} />

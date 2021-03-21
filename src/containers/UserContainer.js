@@ -2,14 +2,16 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { fetchGardens } from '../actions/userActions'
 import GardenCard from '../components/GardenCard'
+import {Link} from "react-router-dom";
 
 class UserContainer extends React.Component {
 
     // eventually this will be /user/id 
 
-    handleClick(){
-        console.log("clicked a garden")
-    }
+    // handleClick(){
+    //     console.log("clicked a garden")
+    //     return <Link to="/"/> 
+    // }
 
     componentDidMount(){
         this.props.fetchGardens(1)
@@ -18,7 +20,7 @@ class UserContainer extends React.Component {
     makeGardenCards(){
         let gardens = []
         this.props.gardens ? gardens = this.props.gardens : gardens = []
-        return gardens.map(garden => <GardenCard key={garden.id} garden={garden.attributes} handleClick={this.handleClick}/>)
+        return gardens.map(garden => <GardenCard key={garden.id} garden={garden.attributes} gardenId={garden.id}/>)
     }
 
     render(){

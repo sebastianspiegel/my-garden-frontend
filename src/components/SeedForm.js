@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {createSeed} from '../actions/seedActions'
 import { Redirect } from "react-router";
-// import withrouter 
+import {useHistory} from 'react-router-dom';
 
 class SeedForm extends React.Component {
 
@@ -10,7 +10,8 @@ class SeedForm extends React.Component {
         common_name: "",
         latin_name: "",
         img: "",
-        info: ""
+        info: "",
+        redirect: false
     }
 
     handleSubmit = (e) => {
@@ -26,10 +27,25 @@ class SeedForm extends React.Component {
             info: ""
         })
 
-        if (this.props.redirectTo) {
-            return <Redirect to={this.props.redirectTo} />;
+        this.setRedirect()
+
+        // if (this.props.redirectTo) {
+        //     return <Redirect to={this.props.redirectTo} />;
+        // }
+        // console.log(this.props)
+    }
+
+    setRedirect = () => {
+        this.setState({
+            ...this.state,
+            redirect: true
+        })
+    }
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to='/seeds' />
         }
-        // history.push
     }
 
     handleChange = (e) => {
@@ -41,6 +57,7 @@ class SeedForm extends React.Component {
     render(){
         return(
             <div>
+                {this.renderRedirect()}
                 <form onSubmit={this.handleSubmit}>
                     Common Name: <input type="text" name="common_name" value={this.state.common_name} onChange={this.handleChange}/><br/>
                     Latin Name: <input type="text" name="latin_name" value={this.state.latin_name} onChange={this.handleChange}/><br/>

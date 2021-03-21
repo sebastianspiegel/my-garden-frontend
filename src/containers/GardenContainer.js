@@ -10,7 +10,8 @@ class GardenContainer extends React.Component {
 
     makeSeedCards(){
         console.log(this.props)
-        return this.props.garden ? this.props.garden.seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed}/>) : <h2>No Seeds</h2>
+        // return this.props.garden ? this.props.garden.seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed}/>) : <h2>No Seeds</h2>
+        // return this.props.garden.seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed}/>)
     }
 
     componentDidMount(){
@@ -18,10 +19,12 @@ class GardenContainer extends React.Component {
     }
 
     render(){
+        console.log(this.props)
         return(
             <div>
                 In the garden container 
-                {this.makeSeedCards()}
+                {/* {this.makeSeedCards()} */}
+                {this.props.garden ? this.makeSeedCards() : <h2>No Seeds</h2>}
             </div>
         )
     }
@@ -29,8 +32,9 @@ class GardenContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return{
-        garden: state.garden
+        garden: state
     }
 }
 
