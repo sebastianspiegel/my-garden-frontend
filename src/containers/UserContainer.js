@@ -3,15 +3,18 @@ import {connect} from 'react-redux'
 import { fetchGardens } from '../actions/userActions'
 import GardenCard from '../components/GardenCard'
 import {Link} from "react-router-dom";
+import {addGarden} from "../actions/userActions"
 
 class UserContainer extends React.Component {
 
     // eventually this will be /user/id 
 
-    // handleClick(){
-    //     console.log("clicked a garden")
-    //     return <Link to="/"/> 
-    // }
+    state = {
+        garden: {
+            name: ""
+        },
+        user_id: 1
+    }
 
     componentDidMount(){
         this.props.fetchGardens(1)
@@ -23,10 +26,39 @@ class UserContainer extends React.Component {
         return gardens.map(garden => <GardenCard key={garden.id} garden={garden.attributes} gardenId={garden.id}/>)
     }
 
+    handleChange = (e) => {
+        this.setState({
+            garden: {
+                name: e.target.value
+            }
+        })
+        console.log(this.state)
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+
+        const garden = {...this.state}
+
+        this.props.addGarden(garden)
+
+        console.log(garden)
+
+        this.setState({
+            garden: {
+                name: ""
+            }
+        })
+    }
+
     render(){
         return(
             <div>
-                Current User's Garden<br/>
+                Current User's Gardens<br/>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" placeholder="New garden name..." onChange={this.handleChange} name="name" value={this.state.garden.name}/>
+                    <input type="submit" value="Create New Garden" />
+                </form>
                 {this.makeGardenCards()} 
             </div>
         )
@@ -41,7 +73,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchGardens: () => dispatch(fetchGardens())
+        fetchGardens: () => dispatch(fetchGardens()),
+        addGarden: () => dispatch(addGarden())
     }
 }
 

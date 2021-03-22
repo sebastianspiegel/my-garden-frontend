@@ -28,11 +28,6 @@ class SeedForm extends React.Component {
         })
 
         this.setRedirect()
-
-        // if (this.props.redirectTo) {
-        //     return <Redirect to={this.props.redirectTo} />;
-        // }
-        // console.log(this.props)
     }
 
     setRedirect = () => {

@@ -30,8 +30,6 @@ export const createSeed = (seed) => {
         .then(resp => resp.json())
         .then(json => {
             dispatch(addSeed(json.data))
-            dispatch(redirect("/seeds"))
         })
-        // .then(dispatch(redirect("/seeds")))
     }
 }
