@@ -4,6 +4,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import SeedCard from '../components/SeedCard'
 import {fetchGardenSeeds} from '../actions/gardenActions'
+import {useSelector} from 'react-redux'
 
  
 class GardenContainer extends React.Component {
@@ -11,7 +12,7 @@ class GardenContainer extends React.Component {
     makeSeedCards(){
         console.log(this.props)
         // return this.props.garden ? this.props.garden.seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed}/>) : <h2>No Seeds</h2>
-        // return this.props.garden.seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed}/>)
+        return this.props.garden.seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed}/>)
     }
 
     componentDidMount(){
@@ -34,7 +35,7 @@ class GardenContainer extends React.Component {
 const mapStateToProps = (state) => {
     console.log(state)
     return{
-        garden: state.garden
+        garden: state.garden,
     }
 }
 

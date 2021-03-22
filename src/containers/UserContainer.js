@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { fetchGardens } from '../actions/userActions'
 import GardenCard from '../components/GardenCard'
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
 import {addGarden} from "../actions/userActions"
 
 class UserContainer extends React.Component {
@@ -39,7 +39,6 @@ class UserContainer extends React.Component {
         e.preventDefault()
 
         const garden = {...this.state}
-
         this.props.addGarden(garden)
 
         console.log(garden)

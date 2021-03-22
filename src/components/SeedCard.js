@@ -15,12 +15,6 @@ class SeedCard extends React.Component {
         };
         this.handleClick = this.handleClick.bind(this);
     }
-    
-    // componentDidMount(){
-    //     if(this.state.redirectTo) {
-    //         console.log("seedcard has redirect to in store")
-    //     }
-    // }
 
     handleClick(e) {
         e.preventDefault();
@@ -32,12 +26,11 @@ class SeedCard extends React.Component {
     }
 
     renderButton(){
-        console.log(this.props.page)
         // logic for which button to appear
         if (this.props.page === "index") {
-            return <button className="add-button" onClick={() => this.handleButtonClick(this.props.seed)}>Add to garden</button>
+            return <button disabled className="add-button" onClick={() => this.handleButtonClick(this.props.seed)}>Add to garden</button>
         } else {
-            return <button className="remove-button" onClick={() => this.handleButtonClick(this.props.seed)}>Remove from Garden</button>
+            return <button disabled className="remove-button" onClick={() => this.handleButtonClick(this.props.seed)}>Remove from Garden</button>
         }
     }
 
@@ -48,7 +41,6 @@ class SeedCard extends React.Component {
                     <div className="card" onClick={this.handleClick}>
                         <SeedCardFront seed={this.props.seed.attributes} handleClick={this.handleClick} />
                         <br />
-                        {/* <button className="add-button" onClick={() => this.handleAddToGarden(this.props.seed)}>Add to garden</button> */}
                         {this.renderButton()}
                     </div>
                     <div className="card" onClick={this.handleClick}>

@@ -18,6 +18,7 @@ export const fetchSeeds = () => {
 
 export const createSeed = (seed) => {
     return (dispatch) => {
+        console.log(seed)
         const configObj = {
             method: 'POST',
             headers: {
