@@ -32,7 +32,6 @@ class UserContainer extends React.Component {
                 name: e.target.value
             }
         })
-        console.log(this.state)
     }
 
     handleSubmit = (e) => {

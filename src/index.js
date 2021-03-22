@@ -8,12 +8,13 @@ import {createStore, applyMiddleware } from "redux"
 import {composeWithDevTools} from "redux-devtools-extension"
 import seedReducer from './reducers/seedReducer'
 import userReducer from './reducers/userReducer'
+import gardenReducer from './reducers/gardenReducer'
 import thunk from 'redux-thunk';
 import reduceReducers from 'reduce-reducers';
 
 
 const initialState = {}
-const reducer = reduceReducers(initialState, seedReducer, userReducer);
+const reducer = reduceReducers(initialState, seedReducer, userReducer, gardenReducer);
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk))) 
 
 ReactDOM.render(

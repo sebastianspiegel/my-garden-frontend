@@ -22,15 +22,16 @@ class SeedCard extends React.Component {
     }
 
     handleButtonClick = (seed) => {
-        this.props.addToGarden(seed)
+        // this.props.addToGarden(seed)
+        console.log(seed)
     }
 
     renderButton(){
         // logic for which button to appear
         if (this.props.page === "index") {
-            return <button disabled className="add-button" onClick={() => this.handleButtonClick(this.props.seed)}>Add to garden</button>
+            return <button  className="add-button" onClick={() => this.handleButtonClick(this.props.seed)}>Add to garden</button>
         } else {
-            return <button disabled className="remove-button" onClick={() => this.handleButtonClick(this.props.seed)}>Remove from Garden</button>
+            return <button  className="remove-button" onClick={() => this.handleButtonClick(this.props.seed)}>Remove from Garden</button>
         }
     }
 
@@ -39,12 +40,12 @@ class SeedCard extends React.Component {
             <div className="card-hidden" onClick={this.handleClick}>
                 <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal">
                     <div className="card" onClick={this.handleClick}>
-                        <SeedCardFront seed={this.props.seed.attributes} handleClick={this.handleClick} />
+                        <SeedCardFront seed={this.props.seed} handleClick={this.handleClick} />
                         <br />
                         {this.renderButton()}
                     </div>
                     <div className="card" onClick={this.handleClick}>
-                        <SeedCardBack seed={this.props.seed.attributes} handleClick={this.handleClick} />
+                        <SeedCardBack seed={this.props.seed} handleClick={this.handleClick} />
                     </div>
                 </ReactCardFlip>
             </div>

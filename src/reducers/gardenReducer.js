@@ -1,8 +1,8 @@
-const gardenReducer = (state = {gardenseeds: []}, action) => {
+const gardenReducer = (state = {garden: []}, action) => {
 
     switch(action.type){
         case "GARDEN/GOT_SEEDS":
-            return {...state, gardenseeds: action.payload} 
+            return {...state, garden: action.payload} 
             // return {...state, seeds: action.payload}
         // case "GARDEN/ADD_SEED":
         //     return {...state, garden: action.payload}

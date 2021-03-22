@@ -3,39 +3,33 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import SeedCard from '../components/SeedCard'
-import {fetchGardenSeeds} from '../actions/gardenActions'
+import {fetchGarden} from '../actions/gardenActions'
 import {fetchSeeds} from '../actions/seedActions'
 
  
 class GardenContainer extends React.Component {
 
     makeSeedCards(){
-        console.log(this.props)
+        let seeds 
         // return this.props.garden ? this.props.garden.seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed}/>) : <h2>No Seeds</h2>
-        // return this.props.garden.seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed}/>)
-        // return this.props.seeds ? this.props.seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed}/>) : "no seeds"
-        if(this.props.gardenseeds){
-            return this.props.gardenseeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed}/>)
-        } else if (this.props.seeds){
-            return this.props.seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed}/>)
-        } else {
-            return "no seeds"
+        if(this.props.garden){
+            if(this.props.garden.seeds){
+                seeds = this.props.garden.seeds
+                return seeds.map(seed => <SeedCard page="garden" key={seed.id} seed={seed}/>)
+            }
         }
     }
 
     componentDidMount(){
-        this.props.fetchSeeds()
-        this.props.fetchGardenSeeds()
+        this.props.fetchGarden()
     }
 
     render(){
-        // console.log(this.props)
         return(
             <div>
-                In the garden container 
+                {this.props.garden ? <h2>{this.props.garden.name}</h2> : <h2>Garden Name Here</h2>} 
                 <br/>
                 {this.makeSeedCards()}
-                {/* {this.props.garden ? this.makeSeedCards() : <h2>No Seeds</h2>} */}
             </div>
         )
     }
@@ -43,17 +37,14 @@ class GardenContainer extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return{
-        gardenseeds: state.gardenseeds,
-        seeds: state.seeds
+        garden: state.garden 
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchGardenSeeds: () => dispatch(fetchGardenSeeds()),
-        fetchSeeds: () => dispatch(fetchSeeds())
+        fetchGarden: () => dispatch(fetchGarden())
     }
 }
 
