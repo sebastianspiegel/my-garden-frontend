@@ -11,6 +11,7 @@ export const fetchSeeds = () => {
         fetch(url)
         .then(resp => resp.json())
         .then(json => {
+            // console.log(json.data)
             dispatch(setSeeds(json.data))
         })
     }
