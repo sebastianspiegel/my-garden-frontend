@@ -55,11 +55,11 @@ class UserContainer extends React.Component {
     render(){
         return(
             <div>
-                Current User's Gardens<br/>
                 <form onSubmit={this.handleSubmit}>
                     <input type="text" placeholder="New garden name..." onChange={this.handleChange} name="name" value={this.state.garden.name}/>
-                    <input type="submit" value="Create New Garden" />
+                    <input disabled type="submit" value="Create New Garden" />
                 </form>
+                <h3>Your gardens:</h3>
                 {this.makeGardenCards()} 
             </div>
         )

@@ -3,9 +3,9 @@ const url = `http://localhost:3000/gardens/1`
 
 export const setGardenSeeds = (garden) => ({type: "GARDEN/GOT_SEEDS", payload: garden})
 
-export const addSeedToGarden = (seed) => ({type: "GARDEN/ADD_SEED", playload: seed})
+export const removeSeed = (seed) => ({type: "GARDEN/REMOVE", payload: seed})
 
-export const removeSeedFromGarden = (seed) => ({type: "GARDEN/REMOVE_SEED", payload: seed})
+export const gardenUpdate = (seed) => ({type: "GARDEN/UPDATE", playload: seed})
 
 export const fetchGarden = () => {
     return (dispatch) => {
@@ -18,7 +18,7 @@ export const fetchGarden = () => {
     }
 }
 
-export const addToGarden = (seed) => {
+export const removeGardenSeed = (seed) => {
     return (dispatch) => {
         const configObj = {
             method: 'PATCH',
@@ -31,12 +31,13 @@ export const addToGarden = (seed) => {
         fetch(url, configObj)
         .then(resp => resp.json())
         .then(json => {
-            dispatch(addSeedToGarden(json))
+            dispatch(removeSeed(json))
         })
+        // .then(dispatch(removeSeed(seed)))
     }
 }
 
-export const removeFromGarden = (seed) => {
+export const updateGarden = (seed) => {
     return (dispatch) => {
         const configObj = {
             method: 'PATCH',
@@ -49,7 +50,7 @@ export const removeFromGarden = (seed) => {
         fetch(url, configObj)
         .then(resp => resp.json())
         .then(json => {
-            dispatch(removeSeedFromGarden(json))
+            dispatch(gardenUpdate(json))
         })
     }
 }

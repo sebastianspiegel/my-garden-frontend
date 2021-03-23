@@ -21,6 +21,8 @@ class GardenContainer extends React.Component {
     }
 
     componentDidMount(){
+        // let gardenId
+        // this.props.garden ? gardenId = this.props.garden.id : gardenId = ""
         this.props.fetchGarden()
     }
 

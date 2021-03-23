@@ -3,7 +3,8 @@ import ReactCardFlip from 'react-card-flip';
 import SeedCardBack from './SeedCardBack';
 import SeedCardFront from './SeedCardFront'
 import { connect } from 'react-redux'
-import {addToGarden} from '../actions/gardenActions'
+import {updateGarden} from '../actions/gardenActions'
+import {removeGardenSeed} from '../actions/gardenActions'
 
 class SeedCard extends React.Component {
 
@@ -11,7 +12,8 @@ class SeedCard extends React.Component {
         super();
           this.state = {
             ...this.state,
-            isFlipped: false
+            isFlipped: false,
+            ingarden: false
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -21,17 +23,26 @@ class SeedCard extends React.Component {
         this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
     }
 
-    handleButtonClick = (seed) => {
-        // this.props.addToGarden(seed)
-        console.log(seed)
+    handleAddClick = (seed) => {
+        this.props.updateGarden(seed)
+        this.setState(prevState => ({ ingarden: !prevState.ingarden }));
+        // console.log(seed)
+    }
+
+    handleRemoveClick = (seed) => {
+        this.props.removeGardenSeed(seed)
+    }
+
+    changeAddButton(){
+        return this.state.ingarden ? "Added!" : "Add to garden"
     }
 
     renderButton(){
         // logic for which button to appear
         if (this.props.page === "index") {
-            return <button  className="add-button" onClick={() => this.handleButtonClick(this.props.seed)}>Add to garden</button>
+            return <button  className="add-button" onClick={() => this.handleAddClick(this.props.seed)}>{this.changeAddButton()}</button>
         } else {
-            return <button  className="remove-button" onClick={() => this.handleButtonClick(this.props.seed)}>Remove from Garden</button>
+            return <button  className="remove-button" onClick={() => this.handleRemoveClick(this.props.seed)}>Remove from Garden</button>
         }
     }
 
@@ -53,4 +64,4 @@ class SeedCard extends React.Component {
     }
 }
 
-export default connect(null, {addToGarden})(SeedCard)
+export default connect(null, {updateGarden, removeGardenSeed})(SeedCard)
