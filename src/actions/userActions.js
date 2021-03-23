@@ -17,7 +17,6 @@ export const fetchGardens = (userid) => {
 
 export const createGarden = (garden) => {
     return (dispatch) => {
-        console.log(garden)
         const configObj = {
             method: 'POST',
             headers: {
@@ -27,10 +26,10 @@ export const createGarden = (garden) => {
             body: JSON.stringify(garden)
         }
         fetch(`http://localhost:3000/gardens`, configObj)
-        .then(console.log(configObj))
         .then(resp => resp.json())
         .then(json => {
-            dispatch(addGarden(json))
+            dispatch(addGarden(json.data))
+            console.log(json)
         })
     }
 }

@@ -11,7 +11,8 @@ class UserContainer extends React.Component {
 
     state = {
         garden: {
-            name: ""
+            name: "",
+            user_id: 1
         }
     }
 
@@ -27,7 +28,9 @@ class UserContainer extends React.Component {
 
     handleChange = (e) => {
         this.setState({
+            ...this.state, 
             garden: {
+                ...this.state.garden,
                 name: e.target.value
             }
         })
@@ -43,7 +46,8 @@ class UserContainer extends React.Component {
 
         this.setState({
             garden: {
-                name: ""
+                name: "",
+                user_id: 1
             }
         })
     }
@@ -71,7 +75,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchGardens: () => dispatch(fetchGardens()),
-        createGarden: () => dispatch(createGarden())
+        createGarden: (garden) => dispatch(createGarden(garden))
     }
 }
 
