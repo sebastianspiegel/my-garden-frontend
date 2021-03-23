@@ -11,11 +11,11 @@ class SeedForm extends React.Component {
         latin_name: "",
         img: "",
         info: "",
-        redirect: false
+        // redirect: false
     }
 
     handleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault() 
 
         const seed = {...this.state}
         this.props.createSeed(seed)

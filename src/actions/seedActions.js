@@ -4,8 +4,6 @@ export const setSeeds = (seeds) => ({type: "SEEDS/GOT_SEEDS", payload: seeds})
 
 export const addSeed = (seed) => ({ type: "SEEDS/ADDED_SEED", payload: seed })
 
-export const redirect = (link) => ({ type: "REDIRECT", payload: link })
-
 export const fetchSeeds = () => {
     return (dispatch) => {
         fetch(url)

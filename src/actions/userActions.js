@@ -3,7 +3,7 @@
 
 export const setGardens = (gardens) => ({type: "USER/GOT_GARDENS", payload: gardens})
 
-export const newGarden = (garden) => ({type: "USER/ADD_GARDEN", payload: garden})
+export const addGarden = (garden) => ({type: "USER/ADD_GARDEN", payload: garden})
 
 export const fetchGardens = (userid) => {
     return(dispatch) => {
@@ -15,21 +15,22 @@ export const fetchGardens = (userid) => {
     }
 }
 
-export const addGarden = (newgarden) => {
+export const createGarden = (garden) => {
     return (dispatch) => {
-        console.log(newgarden)
+        console.log(garden)
         const configObj = {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accepts': 'application/json'
             },
-            body: JSON.stringify(newgarden)
+            body: JSON.stringify(garden)
         }
-        fetch(`http://localhost:3000/users/1/gardens`, configObj)
+        fetch(`http://localhost:3000/gardens`, configObj)
+        .then(console.log(configObj))
         .then(resp => resp.json())
         .then(json => {
-            dispatch(newGarden(json))
+            dispatch(addGarden(json))
         })
     }
 }

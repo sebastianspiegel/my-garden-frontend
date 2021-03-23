@@ -4,7 +4,7 @@ const userReducer = (state = {gardens: []}, action) => {
         case "USER/GOT_GARDENS":
             return {...state, gardens: action.payload}
         case "USER/ADD_GARDEN":
-            return {...state, gardens: action.payload}
+            return {...state, gardens: [...state.gardens, action.payload]}
         default:
             return state
     }

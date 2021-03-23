@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import { fetchGardens } from '../actions/userActions'
 import GardenCard from '../components/GardenCard'
 // import {Link} from "react-router-dom";
-import {addGarden} from "../actions/userActions"
+import {createGarden} from "../actions/userActions"
 
 class UserContainer extends React.Component {
 
@@ -12,8 +12,7 @@ class UserContainer extends React.Component {
     state = {
         garden: {
             name: ""
-        },
-        user_id: 1
+        }
     }
 
     componentDidMount(){
@@ -37,8 +36,8 @@ class UserContainer extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
 
-        const garden = {...this.state}
-        this.props.addGarden(garden)
+        const garden = {...this.state, user_id: 1}
+        this.props.createGarden(garden)
 
         console.log(garden)
 
@@ -72,7 +71,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         fetchGardens: () => dispatch(fetchGardens()),
-        addGarden: () => dispatch(addGarden())
+        createGarden: () => dispatch(createGarden())
     }
 }
 

@@ -4,7 +4,7 @@ const seedReducer = (state = {seeds: []}, action) => {
         case "SEEDS/GOT_SEEDS":
             return {...state, seeds: action.payload}
         case "SEEDS/ADDED_SEED":
-            return {...state, seeds: [...state.seeds, action.payload]}
+            return {...state, seeds: [...state.seeds, action.payload]} 
         case "REDIRECT":
             console.log("in the reducer")
             return {...state, redirectTo: action.payload}
