@@ -24,13 +24,13 @@ class SeedCard extends React.Component {
     }
 
     handleAddClick = (seed) => {
-        this.props.updateGarden(seed)
+        this.props.updateGarden(seed, 1)
         this.setState(prevState => ({ ingarden: !prevState.ingarden }));
         // console.log(seed)
     }
 
     handleRemoveClick = (seed) => {
-        this.props.removeGardenSeed(seed)
+        this.props.removeGardenSeed(seed, 1)
     }
 
     changeAddButton(){
@@ -40,7 +40,20 @@ class SeedCard extends React.Component {
     renderButton(){
         // logic for which button to appear
         if (this.props.page === "index") {
-            return <button  className="add-button" onClick={() => this.handleAddClick(this.props.seed)}>{this.changeAddButton()}</button>
+            return (
+                // <button  className="add-button" onClick={() => this.handleAddClick(this.props.seed)}>{this.changeAddButton()}</button>
+                    <div>
+                        <form>
+                            <select name="gardens">
+                                <option value="" disabled selected hidden>Select a garden</option>
+                                <option>Default</option>
+                                <option>Back Garden</option>
+                                <option>Vegetable Garden</option>
+                            </select><br />
+                            <input class="add-button" type="submit" value="Add to garden"/>
+                        </form>
+                    </div>
+            )
         } else {
             return <button  className="remove-button" onClick={() => this.handleRemoveClick(this.props.seed)}>Remove from Garden</button>
         }
