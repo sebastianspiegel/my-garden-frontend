@@ -105,7 +105,7 @@ button {
 
 .add-button:hover {
   background-color: rgb(216, 216, 216);
-  border: #000000 solid 1px;
+  /* border: #000000 solid 1px; */
   color: #063b0d;
 }
 

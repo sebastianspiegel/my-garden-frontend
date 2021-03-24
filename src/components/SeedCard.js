@@ -16,6 +16,7 @@ class SeedCard extends React.Component {
             ingarden: false
         };
         this.handleClick = this.handleClick.bind(this);
+        this.handleChange = this.handleChange.bind(this)
     }
 
     handleClick(e) {
@@ -23,18 +24,31 @@ class SeedCard extends React.Component {
         this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
     }
 
-    handleAddClick = (seed) => {
-        this.props.updateGarden(seed, 1)
-        this.setState(prevState => ({ ingarden: !prevState.ingarden }));
-        // console.log(seed)
-    }
+    // handleAddClick = (seed) => {
+    //     this.props.updateGarden(seed, 1)
+    //     this.setState(prevState => ({ ingarden: !prevState.ingarden }));
+    //     // console.log(seed)
+    // }
 
     handleRemoveClick = (seed) => {
         this.props.removeGardenSeed(seed, 1)
     }
 
-    changeAddButton(){
-        return this.state.ingarden ? "Added!" : "Add to garden"
+    // changeAddButton(){
+    //     return this.state.ingarden ? "Added!" : "Add to garden"
+    // }
+
+    handleChange(event) {
+        this.setState({
+            ...this.state,
+            value: event.target.value
+        });
+        console.log(this.state)
+    }
+
+    handleAddSeedSubmit = (e) => {
+        e.preventDefault()
+        console.log("clicked")
     }
 
     renderButton(){
@@ -43,14 +57,14 @@ class SeedCard extends React.Component {
             return (
                 // <button  className="add-button" onClick={() => this.handleAddClick(this.props.seed)}>{this.changeAddButton()}</button>
                     <div>
-                        <form>
-                            <select name="gardens">
-                                <option value="" disabled selected hidden>Select a garden</option>
+                        <form onSubmit={this.handleAddSeedSubmit}>
+                            <select value={this.state.value} onChange={this.handleChange}>
+                                <option value=""  defaultValue hidden>Select a garden</option>
                                 <option>Default</option>
                                 <option>Back Garden</option>
                                 <option>Vegetable Garden</option>
                             </select><br />
-                            <input class="add-button" type="submit" value="Add to garden"/>
+                            <input className="add-button" type="submit" value="Add to garden"/>
                         </form>
                     </div>
             )
