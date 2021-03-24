@@ -7,9 +7,9 @@ export const removeSeed = (seed) => ({type: "GARDEN/REMOVE", payload: seed})
 
 export const gardenUpdate = (seed) => ({type: "GARDEN/UPDATE", playload: seed})
 
-export const fetchGarden = () => {
+export const fetchGarden = (gardenid) => {
     return (dispatch) => {
-        fetch(`http://localhost:3000/gardens/1`)
+        fetch(`http://localhost:3000/gardens/${gardenid}`)
         .then(resp => resp.json())
         .then(json => {
             // console.log(json.seeds)

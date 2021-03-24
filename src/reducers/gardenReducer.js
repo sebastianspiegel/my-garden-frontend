@@ -1,4 +1,4 @@
-const gardenReducer = (state = {garden: []}, action) => {
+const gardenReducer = (state = {garden: {}}, action) => {
 
     switch(action.type){
         case "GARDEN/GOT_SEEDS":

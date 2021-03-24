@@ -21,9 +21,10 @@ class GardenContainer extends React.Component {
     }
 
     componentDidMount(){
-        // let gardenId
-        // this.props.garden ? gardenId = this.props.garden.id : gardenId = ""
-        this.props.fetchGarden()
+        console.log(this.props)
+        let gardenId
+        this.props.garden ? gardenId = this.props.garden.id : gardenId = this.props.match.params.id
+        this.props.fetchGarden(gardenId)
     }
 
     render(){
@@ -35,7 +36,6 @@ class GardenContainer extends React.Component {
             </div>
         )
     }
-
 }
 
 const mapStateToProps = (state) => {
@@ -46,7 +46,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchGarden: () => dispatch(fetchGarden())
+        fetchGarden: (id) => dispatch(fetchGarden(id))
     }
 }
 

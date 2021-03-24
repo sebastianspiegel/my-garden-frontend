@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect } from "react-router";
 
-class LoginPage extends React.Component {
+class LoginForm extends React.Component {
 
     state = {
         username: "",
@@ -45,10 +45,12 @@ class LoginPage extends React.Component {
             <div>
                 {this.renderRedirect()}
                 <form onSubmit={this.handleSubmit}>
-                    <label type="text" name="username" />
+                    <label type="text" name="username">Username: </label>
                     <input type="text" name="username" value={this.state.username} onChange={this.handleChange}/>
-                    <label type="text" name="password" />
+                    <br/>
+                    <label type="text" name="password">Password: </label>
                     <input type="password" name="password" value={this.state.password} onChange={this.handleChange}/>
+                    <br/>
                     <input type="submit" />
                 </form>
             </div>
@@ -57,4 +59,4 @@ class LoginPage extends React.Component {
 
 }
 
-export default (LoginPage)
+export default (LoginForm)
