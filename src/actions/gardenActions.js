@@ -1,4 +1,4 @@
-const url = `http://localhost:3000/gardens/1`
+// const url = `http://localhost:3000/gardens/1`
 //  const url = `http://localhost:3000/gardens/${gardenid}`
 
 export const setGardenSeeds = (garden) => ({type: "GARDEN/GOT_SEEDS", payload: garden})
@@ -18,7 +18,7 @@ export const fetchGarden = (gardenid) => {
     }
 }
 
-export const removeGardenSeed = (seed) => {
+export const removeGardenSeed = (seed, gardenid) => {
     return (dispatch) => {
         const configObj = {
             method: 'PATCH',
@@ -28,16 +28,15 @@ export const removeGardenSeed = (seed) => {
             },
             body: JSON.stringify(seed)
         }
-        fetch(url, configObj)
+        fetch(`http://localhost:3000/gardens/${gardenid}`, configObj)
         .then(resp => resp.json())
         .then(json => {
             dispatch(removeSeed(json))
         })
-        // .then(dispatch(removeSeed(seed)))
     }
 }
 
-export const updateGarden = (seed) => {
+export const updateGarden = (seed, gardenid) => {
     return (dispatch) => {
         const configObj = {
             method: 'PATCH',
@@ -47,7 +46,7 @@ export const updateGarden = (seed) => {
             },
             body: JSON.stringify(seed)
         }
-        fetch(url, configObj)
+        fetch(`http://localhost:3000/gardens/${gardenid}`, configObj)
         .then(resp => resp.json())
         .then(json => {
             dispatch(gardenUpdate(json))

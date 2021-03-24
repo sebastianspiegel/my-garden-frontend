@@ -22,8 +22,8 @@ class GardenContainer extends React.Component {
 
     componentDidMount(){
         console.log(this.props)
-        let gardenId
-        this.props.garden ? gardenId = this.props.garden.id : gardenId = this.props.match.params.id
+        let gardenId = this.props.match.params.id
+        // this.props.garden ? gardenId = this.props.garden.id : gardenId = this.props.match.params.id
         this.props.fetchGarden(gardenId)
     }
 
