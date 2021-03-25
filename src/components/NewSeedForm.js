@@ -4,7 +4,7 @@ import {createSeed} from '../actions/seedActions'
 import { Redirect } from "react-router";
 // import {useHistory} from 'react-router-dom';
 
-class SeedForm extends React.Component {
+class NewSeedForm extends React.Component {
 
     state = {
         common_name: "",
@@ -65,4 +65,4 @@ class SeedForm extends React.Component {
     }
 }
 
-export default connect(null, {createSeed})(SeedForm)
+export default connect(null, {createSeed})(NewSeedForm)

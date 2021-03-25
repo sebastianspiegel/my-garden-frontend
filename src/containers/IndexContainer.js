@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import SeedCard from '../components/SeedCard'
 import {fetchSeeds} from '../actions/seedActions'
 import SeedFilter from '../components/SeedFilter'
-import SeedForm from '../components/SeedForm'
+import NewSeedForm from '../components/NewSeedForm'
 
 class SeedContainer extends React.Component{ 
 
@@ -32,7 +32,7 @@ class SeedContainer extends React.Component{
         return(
             <div>
                 <Route exact path="/seeds/new">
-                  <SeedForm />
+                  <NewSeedForm />
                 </Route>
                 <Route exact path="/seeds">
                     <SeedFilter handleChange={this.handleChange} />
