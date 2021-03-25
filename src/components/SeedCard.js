@@ -5,6 +5,7 @@ import SeedCardFront from './SeedCardFront'
 import { connect } from 'react-redux'
 import {updateGarden} from '../actions/gardenActions'
 import {removeGardenSeed} from '../actions/gardenActions'
+import AddSeedForm from './AddSeedForm';
 
 class SeedCard extends React.Component {
 
@@ -38,35 +39,36 @@ class SeedCard extends React.Component {
     //     return this.state.ingarden ? "Added!" : "Add to garden"
     // }
 
-    handleChange(event) {
-        this.setState({
-            ...this.state,
-            value: event.target.value
-        });
-        console.log(this.state)
-    }
+    // handleChange(event) {
+    //     this.setState({
+    //         ...this.state,
+    //         value: event.target.value
+    //     });
+    //     console.log(this.state)
+    // }
 
-    handleAddSeedSubmit = (e) => {
-        e.preventDefault()
-        console.log("clicked")
-    }
+    // handleAddSeedSubmit = (e) => {
+    //     e.preventDefault()
+    //     console.log("clicked")
+    // }
 
     renderButton(){
         // logic for which button to appear
         if (this.props.page === "index") {
             return (
+                <AddSeedForm />
                 // <button  className="add-button" onClick={() => this.handleAddClick(this.props.seed)}>{this.changeAddButton()}</button>
-                    <div>
-                        <form onSubmit={this.handleAddSeedSubmit}>
-                            <select value={this.state.value} onChange={this.handleChange}>
-                                <option value=""  defaultValue hidden>Select a garden</option>
-                                <option>Default</option>
-                                <option>Back Garden</option>
-                                <option>Vegetable Garden</option>
-                            </select><br />
-                            <input className="add-button" type="submit" value="Add to garden"/>
-                        </form>
-                    </div>
+                    // <div>
+                    //     <form onSubmit={this.handleAddSeedSubmit}>
+                    //         <select value={this.state.value} onChange={this.handleChange}>
+                    //             <option value=""  defaultValue hidden>Select a garden</option>
+                    //             <option>Default</option>
+                    //             <option>Back Garden</option>
+                    //             <option>Vegetable Garden</option>
+                    //         </select><br />
+                    //         <input className="add-button" type="submit" value="Add to garden"/>
+                    //     </form>
+                    // </div>
             )
         } else {
             return <button  className="remove-button" onClick={() => this.handleRemoveClick(this.props.seed)}>Remove from Garden</button>
