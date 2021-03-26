@@ -30,7 +30,7 @@ class SeedCard extends React.Component {
     renderButton(){
         // logic for which button to appear
         if (this.props.page === "index") {
-            return <AddSeedForm />
+            return <AddSeedForm gardens={this.props.gardens}/>
         } else {
             return <button  className="remove-button" onClick={() => this.handleRemoveClick(this.props.seed)}>Remove from Garden</button>
         }
@@ -54,4 +54,10 @@ class SeedCard extends React.Component {
     }
 }
 
-export default connect(null, {removeGardenSeed})(SeedCard)
+const mapStateToProps = (state) => {
+    return{
+        gardens: state.gardens 
+    }
+}
+
+export default connect(mapStateToProps, {removeGardenSeed})(SeedCard)

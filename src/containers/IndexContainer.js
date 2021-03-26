@@ -17,7 +17,7 @@ class SeedContainer extends React.Component{
     makeSeedCards(){
         let seeds = ""
         this.state.search !== "" ? seeds = this.props.seeds.filter(seed => seed.attributes.common_name.toLowerCase().includes(this.state.search.toLowerCase())) : seeds = this.props.seeds 
-        return seeds ? seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed.attributes}/>) : seeds = [] 
+        return seeds ? seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed.attributes} gardens={this.state.gardens}/>) : seeds = [] 
     }
 
     //use thunk for async fetch
@@ -50,7 +50,8 @@ class SeedContainer extends React.Component{
 
 const mapStateToProps = (state) => {
     return{
-        seeds: state.seeds
+        seeds: state.seeds,
+        gardens: state.gardens 
     }
 }
 
