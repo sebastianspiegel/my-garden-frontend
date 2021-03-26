@@ -3,6 +3,7 @@ import {Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import SeedCard from '../components/SeedCard'
 import {fetchSeeds} from '../actions/seedActions'
+import {fetchGardens} from '../actions/userActions'
 import SeedFilter from '../components/SeedFilter'
 import NewSeedForm from '../components/NewSeedForm'
 
@@ -19,8 +20,11 @@ class SeedContainer extends React.Component{
         return seeds ? seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed.attributes}/>) : seeds = [] 
     }
 
+    //use thunk for async fetch
+
     componentDidMount(){
         this.props.fetchSeeds()
+        this.props.fetchGardens()
     }
 
     handleChange = (e) => {
@@ -52,7 +56,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchSeeds: () => dispatch(fetchSeeds())
+        fetchSeeds: () => dispatch(fetchSeeds()),
+        fetchGardens: () => dispatch(fetchGardens())
     }
 }
 
