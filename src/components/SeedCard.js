@@ -34,12 +34,16 @@ class SeedCard extends React.Component {
         // console.log(garden)
         // console.log(seed)
         this.props.addGardenSeed(seed, garden.id) 
+        this.setState({
+            ...this.state,
+            ingarden: true 
+        })
     }
 
     renderButton(){
         // logic for which button to appear
         if (this.props.page === "index") {
-            return <AddSeedForm handleAddClick={this.addSeedToGarden} gardens={this.props.gardens}/>
+            return <AddSeedForm handleAddClick={this.addSeedToGarden} gardens={this.props.gardens} ingarden={this.state.ingarden}/>
         } else {
             return <button  className="remove-button" onClick={() => this.handleRemoveClick(this.props.seed)}>Remove from Garden</button>
         }

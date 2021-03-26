@@ -20,6 +20,10 @@ export default function AddSeedForm(props){
         props.handleAddClick(garden)
     }
 
+    function buttonText(){
+        return props.ingarden ? "Added!" : "Add to garden"
+    }
+
     return(
         <div>
             <form>
@@ -27,7 +31,7 @@ export default function AddSeedForm(props){
                     <option value=""  defaultValue hidden>Select a garden</option>
                     {setOptions()}
                 </select><br />
-                <button type="submit" className="add-button" onClick={(e) => handleAddSeedSubmit(e)}>Add to garden</button>
+                <button type="submit" className="add-button" onClick={(e) => handleAddSeedSubmit(e)}>{buttonText()}</button>
             </form>
          </div>
     )
