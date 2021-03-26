@@ -6,18 +6,18 @@ export default function AddSeedForm(props){
     const [selectedGarden, setSelectedGarden] = useState("")
 
     function setOptions(){
-        return props.gardens ? props.gardens.map(garden => <option key={garden.id}>{garden.attributes.name}</option>) : <option>No gardens</option>
+        return props.gardens ? props.gardens.map(garden => <option id={garden.id} key={garden.id}>{garden.attributes.name}</option>) : <option>No gardens</option>
     }
 
 
     function handleChange(e){
-        // console.log(e.target.value)
         setSelectedGarden(e.target.value)
     }
 
     function handleAddSeedSubmit(e){
         e.preventDefault()
-        console.log(selectedGarden)
+        let garden = props.gardens.filter(garden => garden.attributes.name === selectedGarden)
+        props.handleAddClick(garden)
     }
 
     return(

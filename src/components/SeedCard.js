@@ -4,6 +4,7 @@ import SeedCardBack from './SeedCardBack';
 import SeedCardFront from './SeedCardFront'
 import { connect } from 'react-redux'
 import {removeGardenSeed} from '../actions/gardenActions'
+import {addGardenSeed} from '../actions/gardenActions'
 import AddSeedForm from './AddSeedForm';
 
 class SeedCard extends React.Component {
@@ -27,10 +28,18 @@ class SeedCard extends React.Component {
         this.props.removeGardenSeed(seed, 1)
     }
 
+    addSeedToGarden = (garden) => {
+        let seed = this.props.seed
+        console.log(garden.id)
+        console.log(seed)
+        // this.props.addGardenSeed(seed, garden.id) 
+        //garden.id
+    }
+
     renderButton(){
         // logic for which button to appear
         if (this.props.page === "index") {
-            return <AddSeedForm gardens={this.props.gardens}/>
+            return <AddSeedForm handleAddClick={this.addSeedToGarden} gardens={this.props.gardens}/>
         } else {
             return <button  className="remove-button" onClick={() => this.handleRemoveClick(this.props.seed)}>Remove from Garden</button>
         }
@@ -60,4 +69,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {removeGardenSeed})(SeedCard)
+export default connect(mapStateToProps, {removeGardenSeed, addGardenSeed})(SeedCard)

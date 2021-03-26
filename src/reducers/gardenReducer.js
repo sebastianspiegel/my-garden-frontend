@@ -6,7 +6,7 @@ const gardenReducer = (state = {garden: {}}, action) => {
         case "GARDEN/REMOVE":
             // return {...state, garden: [...state.garden.seeds.slice(0, action.payload.id), state.garden.seeds.slice(action.payload.id + 1)]}
             return {...state, garden: action.payload}
-        case "GARDEN/UPDATE":
+        case "GARDEN/ADD":
             return {...state, garden: action.payload} 
         default:
             return state
