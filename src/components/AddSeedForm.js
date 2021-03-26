@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 export default function AddSeedForm(props){
 
-    const [selectedGarden, setSelectedGarden] = useState("")
+    const [selectedGarden, setSelectedGarden] = useState({})
 
     function setOptions(){
         return props.gardens ? props.gardens.map(garden => <option id={garden.id} key={garden.id}>{garden.attributes.name}</option>) : <option>No gardens</option>
@@ -16,7 +16,7 @@ export default function AddSeedForm(props){
 
     function handleAddSeedSubmit(e){
         e.preventDefault()
-        let garden = props.gardens.filter(garden => garden.attributes.name === selectedGarden)
+        let garden = props.gardens.find(garden => garden.attributes.name === selectedGarden)
         props.handleAddClick(garden)
     }
 

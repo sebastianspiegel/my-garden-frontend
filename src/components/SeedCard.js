@@ -25,15 +25,15 @@ class SeedCard extends React.Component {
     }
 
     handleRemoveClick = (seed) => {
-        this.props.removeGardenSeed(seed, 1)
+        const garden = this.props.gardenId
+        this.props.removeGardenSeed(seed, garden)
     }
 
     addSeedToGarden = (garden) => {
         let seed = this.props.seed
-        console.log(garden.id)
-        console.log(seed)
-        // this.props.addGardenSeed(seed, garden.id) 
-        //garden.id
+        // console.log(garden)
+        // console.log(seed)
+        this.props.addGardenSeed(seed, garden.id) 
     }
 
     renderButton(){

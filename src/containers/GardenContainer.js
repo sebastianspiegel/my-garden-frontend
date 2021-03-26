@@ -4,7 +4,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import SeedCard from '../components/SeedCard'
 import {fetchGarden} from '../actions/gardenActions'
-import {fetchSeeds} from '../actions/seedActions'
 
  
 class GardenContainer extends React.Component {
@@ -15,7 +14,7 @@ class GardenContainer extends React.Component {
         if(this.props.garden){
             if(this.props.garden.seeds){
                 seeds = this.props.garden.seeds
-                return seeds.map(seed => <SeedCard page="garden" key={seed.id} seed={seed}/>)
+                return seeds.map(seed => <SeedCard page="garden" key={seed.id} seed={seed} gardenId={this.props.match.params.id}/>)
             }
         }
     }
