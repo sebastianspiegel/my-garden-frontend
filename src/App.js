@@ -3,8 +3,10 @@ import SeedContainer from './containers/IndexContainer';
 import UserContainer from './containers/UserContainer'
 import GardenContainer from './containers/GardenContainer';
 import LoginForm from './components/LoginForm'
+import Login from './components/Login'
 import { Component } from 'react'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"; 
+import { connect } from 'react-redux'
 import Header from './Header'
 
 class App extends Component {
@@ -19,12 +21,14 @@ class App extends Component {
             <Route path="/seeds">
               <SeedContainer />
             </Route>
-            <Route exact path="/login" >
-              <LoginForm />
-            </Route>
+            {this.props.user.id ? 
             <Route path="/users">
               <UserContainer />
-            </Route> 
+            </Route> :
+            <Route exact path="/login" >
+              <Login />
+            </Route>
+            }
             <Route path="/gardens/:id" component={GardenContainer} />
               {/* <GardenContainer />
             </Route> */}
@@ -36,4 +40,6 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({user: state.user})
+
+export default connect(mapStateToProps, null)(App);
