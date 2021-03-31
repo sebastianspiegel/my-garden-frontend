@@ -18,20 +18,13 @@ class App extends Component {
           <div className="App">
             <Header />
             <Switch>
-            <Route path="/seeds">
-              <SeedContainer />
-            </Route>
-            {this.props.user.id ? 
-            <Route path="/users">
-              <UserContainer />
-            </Route> :
-            <Route exact path="/login" >
-              <Login />
-            </Route>
-            }
-            <Route path="/gardens/:id" component={GardenContainer} />
-              {/* <GardenContainer />
-            </Route> */}
+              <Route path="/seeds" component={SeedContainer} />
+              {/* {this.props.user.id ?  */}
+                <Route path="/users" component={UserContainer} /> 
+                {/* : */}
+                <Route exact path="/login" component={Login}/>
+              {/* } */}
+              <Route path="/gardens/:id" component={GardenContainer} />
             </Switch>
           </div>
         
