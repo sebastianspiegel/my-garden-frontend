@@ -2,6 +2,18 @@ body {
   background: rgb(212, 224, 155);
 }
 
+/* top, right, bottom, left */
+.welcome {
+  margin:auto 15% auto 15%;
+}
+
+img.welcome{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
 .App {
   text-align: center;
 }

@@ -6,6 +6,7 @@ import LoginForm from './components/LoginForm'
 import { Component } from 'react'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"; 
 import Header from './Header'
+import Welcome from './components/Welcome'
 
 class App extends Component {
 
@@ -15,9 +16,10 @@ class App extends Component {
           <div className="App">
             <Header />
             <Switch>
-              <Route path="/seeds" container={SeedContainer} />
-              <Route path="/users" container={UserContainer} />
+              <Route path="/seeds" component={SeedContainer} />
+              <Route path="/users" component={UserContainer} />
               <Route path="/gardens/:id" component={GardenContainer} />
+            <Welcome />
             </Switch>
           </div>
       </Router>
