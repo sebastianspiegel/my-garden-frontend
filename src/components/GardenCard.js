@@ -1,9 +1,6 @@
 import React from 'react';
 import {useHistory} from 'react-router-dom';
 
-// import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-// import GardenContainer from '../containers/GardenContainer'
-
 export default function GardenCard(props){
 
     const history = useHistory()

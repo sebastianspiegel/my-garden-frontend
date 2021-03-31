@@ -31,8 +31,6 @@ class SeedCard extends React.Component {
 
     addSeedToGarden = (garden) => {
         let seed = this.props.seed
-        // console.log(garden)
-        // console.log(seed)
         this.props.addGardenSeed(seed, garden.id) 
         this.setState({
             ...this.state,

@@ -29,7 +29,6 @@ export const createGarden = (garden) => {
         .then(resp => resp.json())
         .then(json => {
             dispatch(addGarden(json.data))
-            console.log(json)
         })
     }
 }

@@ -1,6 +1,3 @@
-// const url = `http://localhost:3000/gardens/1`
-//  const url = `http://localhost:3000/gardens/${gardenid}`
-
 export const setGardenSeeds = (garden) => ({type: "GARDEN/GOT_SEEDS", payload: garden})
 
 export const removeSeed = (seed) => ({type: "GARDEN/REMOVE", payload: seed})
@@ -12,7 +9,6 @@ export const fetchGarden = (gardenid) => {
         fetch(`http://localhost:3000/gardens/${gardenid}`)
         .then(resp => resp.json())
         .then(json => {
-            // console.log(json.seeds)
             dispatch(setGardenSeeds(json))
         })
     }

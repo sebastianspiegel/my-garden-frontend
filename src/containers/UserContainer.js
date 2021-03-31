@@ -2,7 +2,6 @@ import React from 'react'
 import {connect} from 'react-redux'
 import { fetchGardens } from '../actions/userActions'
 import GardenCard from '../components/GardenCard'
-// import {Link} from "react-router-dom";
 import {createGarden} from "../actions/userActions"
 
 class UserContainer extends React.Component {
