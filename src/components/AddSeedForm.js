@@ -9,7 +9,6 @@ export default function AddSeedForm(props){
         return props.gardens ? props.gardens.map(garden => <option id={garden.id} key={garden.id}>{garden.attributes.name}</option>) : <option>No gardens</option>
     }
 
-
     function handleChange(e){
         setSelectedGarden(e.target.value)
     }
