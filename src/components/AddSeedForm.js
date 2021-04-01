@@ -10,6 +10,7 @@ export default function AddSeedForm(props){
     }
 
     function handleChange(e){
+        //undisable button 
         setSelectedGarden(e.target.value)
     }
 
@@ -23,9 +24,9 @@ export default function AddSeedForm(props){
         return props.ingarden ? "Added!" : "Add to garden"
     }
 
-    function buttonDisabled(){
-        return props.gardens ? false : true
-    }
+    // function buttonDisabled(){
+    //     return selectedGarden ? true : false
+    // }
 
     return(
         <div>
@@ -34,7 +35,7 @@ export default function AddSeedForm(props){
                     <option value=""  defaultValue hidden>Select a garden</option>
                     {setOptions()}
                 </select><br />
-                <button disabled={buttonDisabled()} type="submit" className="add-button" onClick={(e) => handleAddSeedSubmit(e)}>{buttonText()}</button>
+                <button type="submit" className="add-button" onClick={(e) => handleAddSeedSubmit(e)}>{buttonText()}</button>
             </form>
          </div>
     )

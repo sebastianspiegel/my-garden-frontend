@@ -6,7 +6,6 @@ export default function GardenCard(props){
     const history = useHistory()
 
     function handleClick(){
-        console.log(props.gardenId)
         history.push(`/gardens/${props.gardenId}`)
     }
     

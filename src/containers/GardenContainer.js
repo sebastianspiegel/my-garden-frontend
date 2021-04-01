@@ -10,19 +10,18 @@ class GardenContainer extends React.Component {
 
     makeSeedCards(){
         let seeds 
-        // return this.props.garden ? this.props.garden.seeds.map(seed => <SeedCard page="index" key={seed.id} seed={seed}/>) : <h2>No Seeds</h2>
         if(this.props.garden){
-            if(this.props.garden.seeds){
+            if(this.props.garden.seeds.length > 0){
                 seeds = this.props.garden.seeds
                 return seeds.map(seed => <SeedCard page="garden" key={seed.id} seed={seed} gardenId={this.props.match.params.id}/>)
+            } else {
+                return <h3>No seeds are in this garden, you can add some from the catalogue!</h3>
             }
         }
     }
 
     componentDidMount(){
-        console.log(this.props)
         let gardenId = this.props.match.params.id
-        // this.props.garden ? gardenId = this.props.garden.id : gardenId = this.props.match.params.id
         this.props.fetchGarden(gardenId)
     }
 
