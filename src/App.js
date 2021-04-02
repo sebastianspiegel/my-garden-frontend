@@ -8,12 +8,13 @@ import { Component } from 'react'
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"; 
 import { connect } from 'react-redux'
 import Header from './Header'
-import {autologin, logout} from './actions/authActions'
+import {autoLogin, logout} from './actions/authActions'
 
 class App extends Component {
 
   componentDidMount(){
     localStorage.token && this.props.autoLogin()
+    console.log(this.props)
   }
 
   render(){
@@ -40,5 +41,5 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({user: state.user})
 
-export default connect(mapStateToProps, {autologin, logout})(App);
+export default connect(mapStateToProps, {autoLogin, logout})(App);
 // 

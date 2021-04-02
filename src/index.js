@@ -9,19 +9,23 @@ import {composeWithDevTools} from "redux-devtools-extension"
 import seedReducer from './reducers/seedReducer'
 import userReducer from './reducers/userReducer'
 import gardenReducer from './reducers/gardenReducer'
+import authReducer from './reducers/authReducer'
 import thunk from 'redux-thunk';
 import reduceReducers from 'reduce-reducers';
+import { BrowserRouter as Router } from 'react-router-dom'
 
 
 const initialState = {}
-const reducer = reduceReducers(initialState, seedReducer, userReducer, gardenReducer);
+const reducer = reduceReducers(initialState, seedReducer, userReducer, gardenReducer, authReducer);
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk))) 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <Router>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
