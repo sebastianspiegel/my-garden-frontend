@@ -1,3 +1,5 @@
+//edits here for user auth with local storage 
+
 const authReducer = (state = {id: null, username: null, signup: false}, action) => {
 
     switch(action.type){
