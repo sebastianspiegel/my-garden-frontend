@@ -1,6 +1,6 @@
 //edits here for user auth with local storage 
 
-const authReducer = (state = {id: null, username: null, signup: false}, action) => {
+const authReducer = (state = {id: null, username: null}, action) => {
 
     switch(action.type){
         case "TOGGLE_SIGNUP":

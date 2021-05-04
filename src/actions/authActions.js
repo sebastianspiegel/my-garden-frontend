@@ -39,12 +39,13 @@ export const sendSignup = (userData) => {
         body: JSON.stringify(userData),
       })
       .then(response => response.json())
-      .then(response => {
+      .then(json => {
         localStorage.setItem("token", json.jwt)
         dispatch({
         type: "SET_USER",
-        payload: {user: response.user}
+        payload: {user: json.user}
       })
+      .then(() => console.log(json))
     })
     }
 }
@@ -59,11 +60,11 @@ export const sendLogin = (userData) => {
         body: JSON.stringify(userData),
       })
       .then(response => response.json())
-      .then(response => {
+      .then(json => {
         localStorage.setItem("token", json.jwt)
         dispatch({
         type: "SET_USER",
-        payload: {user: response.user}
+        payload: {user: json.user}
       })
     })
     }

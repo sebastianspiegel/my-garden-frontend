@@ -28,7 +28,7 @@ class App extends Component {
               {/* {this.props.user.id ?  */}
                 <Route path="/users" component={UserContainer} /> 
                 {/* : */}
-                <Route exact path="/login" component={Login}/>
+                <Route exact path="/login" component={LoginForm}/>
               {/* } */}
               <Route path="/gardens/:id" component={GardenContainer} />
             </Switch>
