@@ -1,7 +1,7 @@
 import React from 'react'
 import { Redirect } from "react-router";
 import { connect } from 'react-redux'
-import {sendSignup} from '../actions/authActions'
+import {sendLogin} from '../actions/authActions'
 
 class LoginForm extends React.Component {
 
@@ -61,4 +61,4 @@ class LoginForm extends React.Component {
 
 }
 
-export default connect(null, {sendSignup})(LoginForm)
+export default connect(null, {sendLogin})(LoginForm)
