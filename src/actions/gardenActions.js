@@ -6,7 +6,7 @@ export const addSeed = (seed) => ({type: "GARDEN/ADD", playload: seed})
 
 export const fetchGarden = (gardenid) => {
     return (dispatch) => {
-        fetch(`http://localhost:3000/gardens/${gardenid}`)
+        fetch(`https://peaceful-waters-87161.herokuapp.com/gardens/${gardenid}`)
         .then(resp => resp.json())
         .then(json => {
             dispatch(setGardenSeeds(json))
@@ -24,7 +24,7 @@ export const removeGardenSeed = (seed, gardenid) => {
             },
             body: JSON.stringify(seed)
         }
-        fetch(`http://localhost:3000/gardens/${gardenid}`, configObj)
+        fetch(`https://peaceful-waters-87161.herokuapp.com/gardens/${gardenid}`, configObj)
         .then(resp => resp.json())
         .then(json => {
             dispatch(removeSeed(json))
@@ -42,7 +42,7 @@ export const addGardenSeed = (seed, gardenid) => {
             },
             body: JSON.stringify(seed)
         }
-        fetch(`http://localhost:3000/gardens/${gardenid}`, configObj)
+        fetch(`https://peaceful-waters-87161.herokuapp.com/gardens/${gardenid}`, configObj)
         .then(resp => resp.json())
         .then(json => {
             dispatch(addSeed(json))

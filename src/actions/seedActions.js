@@ -1,4 +1,4 @@
-const url = "http://127.0.0.1:3000/seeds"
+const url = "https://peaceful-waters-87161.herokuapp.com/seeds"
 
 export const setSeeds = (seeds) => ({type: "SEEDS/GOT_SEEDS", payload: seeds})
 
